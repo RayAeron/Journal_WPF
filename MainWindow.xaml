@@ -11,7 +11,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="1.png" Stretch="UniformToFill"/>
         </Grid.Background>
-
         <Canvas x:Name="login_canv" Visibility="Visible">
             <Button x:Name="register" Content="Регистрация" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="320" Height="31" FontSize="12" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="back_l"/>
             <Button x:Name="vhod" Content="Вход" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="284" Height="31" FontSize="12" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="vhod_Click"/>
@@ -29,7 +28,7 @@
             <Label Content="Пароль*" Canvas.Left="61" Canvas.Top="170" Foreground="#FF0767B3" HorizontalContentAlignment="Center" Width="178"/>
             <TextBox x:Name="login_r" Height="23" Canvas.Left="61" Canvas.Top="139" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
             <PasswordBox x:Name="pass_r" Height="23" Canvas.Left="61" Canvas.Top="201" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
-            <Label x:Name="error1" Content="" Canvas.Left="151" Canvas.Top="320" Width="178" Foreground="Red" FontSize="10" HorizontalContentAlignment="Center"/>
+            <Label x:Name="error1" Content="" Canvas.Left="151" Canvas.Top="80" Width="190" Foreground="Red" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="surname" Height="23" Canvas.Left="257" Canvas.Top="139" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
             <TextBox x:Name="name" Height="23" Canvas.Left="257" Canvas.Top="201" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
             <TextBox x:Name="patronymic" Height="23" Canvas.Left="257" Canvas.Top="263" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
@@ -37,7 +36,10 @@
             <Label Content="Имя*" Canvas.Left="257" Canvas.Top="170" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
             <Label Content="Отчество" Canvas.Left="257" Canvas.Top="232" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
             <ComboBox x:Name="group" Canvas.Left="61" Canvas.Top="263" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
-            <Label Content="Группы*" Canvas.Left="61" Canvas.Top="232" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
+            <Label Content="Группы" Canvas.Left="61" Canvas.Top="232" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
+            <RadioButton x:Name="yes" Content="Да" Canvas.Left="177" Canvas.Top="321" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0767B3" GroupName ="yesno" Checked="check_staff"/>
+            <RadioButton x:Name="no" Content="Нет" Canvas.Left="251" Canvas.Top="321" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0767B3" GroupName ="yesno" Checked="check_staff" IsChecked="True"/>
+            <Label Content="Являетесь ли вы преподавателем?*" Canvas.Left="124" Canvas.Top="290" Foreground="#FF0767B3" HorizontalContentAlignment="Center" Width="217"/>
         </Canvas>
     </Grid>
 </mah:MetroWindow>

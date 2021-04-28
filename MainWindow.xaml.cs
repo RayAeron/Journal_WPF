@@ -26,19 +26,41 @@ namespace Journal_WPF
     {
         Journal Journal;
         usersTableAdapter usersTableAdapter;
+        groupTableAdapter groupTableAdapter;
+        string check = "no";
 
         public MainWindow()
         {
             InitializeComponent();
+
+            Title = "Авторизация";
             Journal = new Journal();
             usersTableAdapter = new usersTableAdapter();
             usersTableAdapter.Fill(Journal.users);
+
+            groupTableAdapter = new groupTableAdapter();
+            groupTableAdapter.Fill(Journal.group);
+
+            for (int i = 0; i < Journal.group.Rows.Count; i++)
+            {
+                string bd_group = Journal.group.Rows[i].ItemArray[1].ToString();
+                group.Items.Add(bd_group);
+            }
+
+            login_l.MaxLength = 50;
+            login_r.MaxLength = 50;
+            pass_l.MaxLength = 50;
+            pass_r.MaxLength = 50;
+            surname.MaxLength = 50;
+            name.MaxLength = 50;
+            patronymic.MaxLength = 50;
+
         }
         private void pass_recovery_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //reck_pass reck_pass = new reck_pass();
-            //reck_pass.Show();
-            //this.Close();
+            reck_pass reck_pass = new reck_pass();
+            reck_pass.Show();
+            this.Close();
         }
         private void Back_Focus(Canvas login_canv, Canvas reg_canv)
         {
@@ -48,6 +70,10 @@ namespace Journal_WPF
             pass_l.Clear();
             login_r.Clear();
             pass_r.Clear();
+            surname.Clear();
+            name.Clear();
+            patronymic.Clear();
+            group.SelectedIndex = -1;
             error.Content = null;
             error1.Content = null;
         }
@@ -57,24 +83,40 @@ namespace Journal_WPF
             if (((Button)sender).Content.Equals("Назад"))
             {
                 Back_Focus(reg_canv, login_canv);
+                Title = "Авторизация";
             }
             else
             {
                 Back_Focus(login_canv, reg_canv);
+                Title = "Регистрация";
             }
         }
 
         private void reg_Click(object sender, RoutedEventArgs e)
         {
-            if (login_r.Text != "" && pass_r.Password != "" )
+            string group_iner = "";
+            groupTableAdapter.FillBy(Journal.group, group.Text);
+            if (!Journal.group.Rows.Count.Equals(0))
+            {
+                for (int i = 0; i < Journal.group.Rows.Count; i++)
+                {
+                    string grop_id = Convert.ToString(Journal.group.Rows[i]["id_group"]);
+                    group_iner = grop_id;
+                }
+            }
+            if (login_r.Text != "" && pass_r.Password != "")
             {
                 usersTableAdapter.FillBy(Journal.users, login_r.Text);
                 if (Journal.users.Rows.Count.Equals(0))
                 {
-                    string group_iner = null;
-                    
-                    string permiss = "no";
-                    //usersTableAdapter.InsertQuery(surname.Text, name.Text, patronymic.Text, login_r.Text, pass_r.Password, permiss);
+                    if(check == "yes")
+                    {
+                        usersTableAdapter.InsertQuery1(surname.Text, name.Text, patronymic.Text, login_r.Text, pass_r.Password, check);
+                    }
+                    else
+                    {
+                        usersTableAdapter.InsertQuery(surname.Text, name.Text, patronymic.Text, login_r.Text, pass_r.Password, check, Convert.ToInt32(group_iner));
+                    }
                     MailAddress from1 = new MailAddress("balance.emulation.card@gmail.com", "Register");
                     MailAddress to1 = new MailAddress(login_r.Text);
                     MailMessage m1 = new MailMessage(from1, to1);
@@ -100,14 +142,33 @@ namespace Journal_WPF
                 usersTableAdapter.FillBy1(Journal.users, login_l.Text, pass_l.Password);
                 if (!Journal.users.Rows.Count.Equals(0))
                 {
-                    //string name = login_l.Text;
                     //mainPolyclinic mainPolyclinic = new mainPolyclinic(name);
                     //mainPolyclinic.Show();
                     //this.Close();
+                    MessageBox.Show("Успешно пидрила");
                 }
                 else error.Content = "Логин или пароль не совпадают";
             }
             else error.Content = "Введите данные";
+        }
+
+        private void check_staff(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            check = radioButton.Name;
+            if (check == "yes")
+            {
+                group.IsEnabled = false;
+                group.Text = "";
+            }
+            else group.IsEnabled = true;
+        }
+        private void inf_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
