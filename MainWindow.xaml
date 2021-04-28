@@ -6,26 +6,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Journal_WPF"
         mc:Ignorable="d"
-        Title="test" Height="450" Width="300" ResizeMode="CanMinimize" Background="#FF252525">
+        Title="test" Height="489.286" Width="479.464" ResizeMode="CanMinimize" Background="#FF252525">
     <Grid>
-        <Canvas x:Name="login_canv" Visibility="Visible">
-            <Button Content="Регистрация" Canvas.Left="57" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="328" Height="31" FontSize="14"/>
-            <Button Content="Вход" Canvas.Left="57" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="292" Height="31" FontSize="14"/>
-            <Label x:Name="pass_recovery" Content="Восстановление пароля" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="178" FontSize="11"  Background="{x:Null}" MouseUp="pass_recovery_MouseUp" Canvas.Left="57" Canvas.Top="215" HorizontalContentAlignment="Center" Foreground="#FF0767B3"/>
-            <Label Content="Логин" Canvas.Left="57" Canvas.Top="59" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
-            <Label Content="Пароль" Canvas.Left="57" Canvas.Top="153" Foreground="#FF0767B3" HorizontalContentAlignment="Center" Width="178"/>
-            <TextBox Height="23" Canvas.Left="57" TextWrapping="Wrap" Canvas.Top="90" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
-            <TextBox Height="23" Canvas.Left="57" TextWrapping="Wrap" Canvas.Top="184" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="1.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Canvas x:Name="login_canv" Visibility="Hidden">
+            <Button x:Name="register" Content="Регистрация" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="320" Height="31" FontSize="12" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="back_l"/>
+            <Button x:Name="vhod" Content="Вход" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="284" Height="31" FontSize="12" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="vhod_Click"/>
+            <Label x:Name="pass_recovery" Content="Восстановление пароля" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="178" FontSize="11"  Background="{x:Null}" MouseUp="pass_recovery_MouseUp" Canvas.Left="151" Canvas.Top="223" HorizontalContentAlignment="Center" Foreground="#FF0767B3"/>
+            <Label Content="Логин" Canvas.Left="151" Canvas.Top="99" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
+            <Label Content="Пароль" Canvas.Left="151" Canvas.Top="161" Foreground="#FF0767B3" HorizontalContentAlignment="Center" Width="178"/>
+            <TextBox x:Name="login_l" Height="23" Canvas.Left="151"  Canvas.Top="130" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+            <PasswordBox x:Name="pass_l" Height="23" Canvas.Left="151"  Canvas.Top="192" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+            <Label x:Name="error" Canvas.Left="151" Canvas.Top="254" Width="178" Foreground="Red" FontSize="10" HorizontalContentAlignment="Center" Height="25"/>
         </Canvas>
-        <Canvas x:Name="reg_canv" Visibility="Hidden">
-            <Button Content="Регистрация" Canvas.Left="57" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="288" Height="31" FontSize="14"/>
-            <Button Content="Назад" Canvas.Left="57" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="324" Height="31" FontSize="14"/>
-            <Label Content="Логин" Canvas.Left="57" Canvas.Top="59" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
-            <Label Content="Пароль" Canvas.Left="57" Canvas.Top="121" Foreground="#FF0767B3" HorizontalContentAlignment="Center" Width="178"/>
-            <TextBox Height="23" Canvas.Left="57" TextWrapping="Wrap" Canvas.Top="90" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
-            <TextBox Height="23" Canvas.Left="57" TextWrapping="Wrap" Canvas.Top="152" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
-            <Label Content="Почта" Canvas.Left="57" Canvas.Top="183" Foreground="#FF0767B3" HorizontalContentAlignment="Center" Width="178"/>
-            <TextBox Height="23" Canvas.Left="57" TextWrapping="Wrap" Canvas.Top="214" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+        <Canvas x:Name="reg_canv" Visibility="Visible">
+            <Button x:Name="reg" Content="Регистрация" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="363" Height="31" FontSize="12" HorizontalContentAlignment="Center" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="reg_Click"/>
+            <Button x:Name="back" Content="Назад" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="399" Height="31" FontSize="12" Click="back_l" HorizontalContentAlignment="Center" mah:ControlsHelper.FocusBorderBrush="{x:Null}"/>
+            <Label Content="Логин*" Canvas.Left="61" Canvas.Top="108" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
+            <Label Content="Пароль*" Canvas.Left="61" Canvas.Top="170" Foreground="#FF0767B3" HorizontalContentAlignment="Center" Width="178"/>
+            <TextBox x:Name="login_r" Height="23" Canvas.Left="61" Canvas.Top="139" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+            <PasswordBox x:Name="pass_r" Height="23" Canvas.Left="61" Canvas.Top="201" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+            <Label x:Name="error1" Content="" Canvas.Left="151" Canvas.Top="320" Width="178" Foreground="Red" FontSize="10" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="surname" Height="23" Canvas.Left="257" Canvas.Top="139" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+            <TextBox x:Name="name" Height="23" Canvas.Left="257" Canvas.Top="201" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+            <TextBox x:Name="patronymic" Height="23" Canvas.Left="257" Canvas.Top="263" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+            <Label Content="Фамилия*" Canvas.Left="257" Canvas.Top="108" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
+            <Label Content="Имя*" Canvas.Left="257" Canvas.Top="170" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
+            <Label Content="Отчество" Canvas.Left="257" Canvas.Top="232" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
+            <ComboBox x:Name="group" Canvas.Left="61" Canvas.Top="263" Width="178" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3"/>
+            <Label Content="Группы*" Canvas.Left="61" Canvas.Top="232" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>
         </Canvas>
     </Grid>
 </mah:MetroWindow>
