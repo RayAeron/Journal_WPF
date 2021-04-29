@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Journal_WPF"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Journal_WPF.reck_pass"
         mc:Ignorable="d"
-        Title="Восстановленние пароля" Height="181" Width="310" ResizeMode="CanMinimize" Background="#FF252525" >
+        Title="Восстановленние пароля" Height="181" Width="310" ResizeMode="CanMinimize" Background="#FF252525" WindowStartupLocation="CenterScreen">
     <Grid>
         <Canvas x:Name="email" Visibility="Visible">
             <TextBox x:Name="r_pass" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="168" Canvas.Left="12" Canvas.Top="54" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" CaretBrush="#FF0078D7"/>

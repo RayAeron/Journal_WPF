@@ -11,9 +11,14 @@
     <Grid>
         <Canvas x:Name="main_canv" Visibility="Visible">
             <Label x:Name="login" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF0767B3" FontWeight="Bold" FontSize="16"/>
-            <Button x:Name="mark_view" Content="Просмотр оценок" Canvas.Left="10" BorderBrush="#FF0767B3" Background="{x:Null}" Canvas.Top="52" FontSize="12" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Width="375" Foreground="#FF0767B3" Height="360" Click="back_l"/>
-            <Button x:Name="personal_cabinet" Content="Личный кабинет" BorderBrush="#FF0767B3" Background="{x:Null}" FontSize="12" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Width="375" Foreground="#FF0767B3" Canvas.Left="409" Canvas.Top="52" Height="360" Click="back_l"/>
+            <Button x:Name="mark_view" Content="Просмотр оценок" Canvas.Left="10" BorderBrush="#FF0767B3" Background="{x:Null}" Canvas.Top="52" FontSize="16" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Width="375" Foreground="#FF0767B3" Height="360" Click="back_l"/>
+            <Button x:Name="personal_cabinet" Content="Личный кабинет" BorderBrush="#FF0767B3" Background="{x:Null}" FontSize="16" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Width="375" Foreground="#FF0767B3" Canvas.Left="409" Canvas.Top="52" Height="360" Click="back_l"/>
             <Label Content="|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xD;&#xA;|&#xD;&#xA;|" Canvas.Left="385" Canvas.Top="44" Foreground="#FF0767B3" Height="377" Width="24" HorizontalContentAlignment="Center" IsEnabled="False"/>
+            <Button x:Name="exit" Content="" Canvas.Left="742" Canvas.Top="10" Width="42" BorderBrush="{x:Null}" Foreground="{x:Null}" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Height="29" Click="exit_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="log_out_icon_128821.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
         </Canvas>
         <Canvas x:Name="mark_canv" Visibility="Hidden">
             <Button x:Name="back_mark" Content="Назад" Canvas.Left="619" BorderBrush="#FF0767B3" Canvas.Top="379" FontSize="14" Width="165" Foreground="White" Height="32" Click="back_l" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3"/>
@@ -23,7 +28,19 @@
             <Button x:Name="search_btn" Content="Поиск" Canvas.Left="510" Canvas.Top="63" Width="75" BorderBrush="#FF0767B3" Foreground="White" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3" Click="search_btn_Click"/>
         </Canvas>
         <Canvas x:Name="person_canv" Visibility="Hidden">
-            <Button x:Name="back_person" Content="Назад." Canvas.Left="594" BorderBrush="#FF0767B3" Canvas.Top="369" FontSize="12" Width="190" Foreground="Black" Height="42" Click="back_l" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3"/>
+            <Button x:Name="back_person" Content="Назад" Canvas.Left="619" BorderBrush="#FF0767B3" Canvas.Top="379" FontSize="14" Width="165" Foreground="White" Height="32" Click="back_l" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3"/>
+            <Label Content="Имя:" Canvas.Left="21" Canvas.Top="130" Foreground="#FF0767B3" Width="78" FontSize="14" FontWeight="Bold" Height="31"/>
+            <Label Content="Фамилия:" Canvas.Left="21" Canvas.Top="94" Foreground="#FF0767B3" Width="78" FontSize="14" FontWeight="Bold" Height="31"/>
+            <Label Content="Отчество:" Canvas.Left="21" Canvas.Top="166" Foreground="#FF0767B3" Width="78" FontSize="14" FontWeight="Bold" Height="31"/>
+            <TextBox x:Name="name_t" Height="31" Canvas.Left="408"  Canvas.Top="130" Width="214" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7" mah:ControlsHelper.MouseOverBorderBrush="#FF0078D7"/>
+            <TextBox x:Name="surname_t" Height="31" Canvas.Left="408"  Canvas.Top="94" Width="214" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7" mah:ControlsHelper.MouseOverBorderBrush="#FF0078D7"/>
+            <TextBox x:Name="patronymic_t" Height="31" Canvas.Left="408"  Canvas.Top="166" Width="214" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7" mah:ControlsHelper.MouseOverBorderBrush="#FF0078D7"/>
+            <Label x:Name="patronymic_s" Content="" Canvas.Left="104" Canvas.Top="166" Foreground="#FF0767B3" Width="299" FontSize="14" FontWeight="Bold" Height="31"/>
+            <Label x:Name="name_s" Content="" Canvas.Left="104" Canvas.Top="130" Foreground="#FF0767B3" Width="299" FontSize="14" FontWeight="Bold" Height="31"/>
+            <Label x:Name="surname_s" Content="" Canvas.Left="104" Canvas.Top="94" Foreground="#FF0767B3" Width="299" FontSize="14" FontWeight="Bold" Height="31"/>
+            <Button x:Name="surname_b" Content="Изменить" Canvas.Left="660" Width="96" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="94" Height="31" FontSize="12" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="surname_b_Click"/>
+            <Button x:Name="name_b" Content="Изменить" Canvas.Left="660" Width="96" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="130" Height="31" FontSize="12" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="name_b_Click"/>
+            <Button x:Name="patronymic_b" Content="Изменить" Canvas.Left="660" Width="96" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="166" Height="31" FontSize="12" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="patronymic_b_Click"/>
         </Canvas>
     </Grid>
 </mah:MetroWindow>

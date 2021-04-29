@@ -60,7 +60,6 @@ namespace Journal_WPF
         {
             reck_pass reck_pass = new reck_pass();
             reck_pass.Show();
-            this.Close();
         }
         private void Back_Focus(Canvas login_canv, Canvas reg_canv)
         {
@@ -183,6 +182,24 @@ namespace Journal_WPF
             if (e.Key == Key.Space)
             {
                 e.Handled = true;
+            }
+        }
+        int theme = 0;
+        private void n_d_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (theme == 0)
+            {
+                ImageSourceConverter imgs = new ImageSourceConverter();
+                n_d.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"n.png"));
+                theme++;
+                
+                
+            }
+            else
+            {
+                ImageSourceConverter imgs = new ImageSourceConverter();
+                n_d.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"d.png"));
+                theme--;
             }
         }
     }

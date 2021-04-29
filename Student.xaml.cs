@@ -26,6 +26,7 @@ namespace Journal_WPF
         Journal Journal;
         usersTableAdapter usersTableAdapter;
         Mark_VTableAdapter Mark_VTableAdapter;
+        string trysi;
 
         public Student()
         {
@@ -82,8 +83,18 @@ namespace Journal_WPF
             {
                 person_Focus(main_canv, person_canv);
                 Title = "Личный кабинет";
+                trysi = Convert.ToString(login.Content);
+
+                usersTableAdapter.FillBy(Journal.users, Convert.ToString(login.Content));
+                if (!Journal.users.Rows.Count.Equals(0))
+                {
+                    surname_s.Content = Journal.users.Rows[0].ItemArray[1].ToString();
+                    name_s.Content = Journal.users.Rows[0].ItemArray[2].ToString();
+                    patronymic_s.Content = Journal.users.Rows[0].ItemArray[3].ToString();
+
+                }
             }
-            if (((Button)sender).Content.Equals("Назад."))
+            if (((Button)sender).Content.Equals("Назад"))
             {
                 main_person_Focus(main_canv, person_canv);
                 Title = "Панель студента";
@@ -93,6 +104,46 @@ namespace Journal_WPF
         private void search_btn_Click(object sender, RoutedEventArgs e)
         {
             Mark_VTableAdapter.FillBy1(Journal.Mark_V, searh.Text);
+        }
+
+        private void surname_b_Click(object sender, RoutedEventArgs e)
+        {
+            if (surname_t.Text != "")
+            {
+                usersTableAdapter.UpdateQuery1(surname_t.Text, trysi);
+                surname_s.Content = surname_t.Text;
+                surname_t.Text = null;
+            }
+            else MessageBox.Show("Введите данные");
+        }
+
+        private void name_b_Click(object sender, RoutedEventArgs e)
+        {
+            if (name_t.Text != "")
+            {
+                usersTableAdapter.UpdateQuery2(name_t.Text, trysi);
+                name_s.Content = name_t.Text;
+                name_t.Text = null;
+            }
+            else MessageBox.Show("Введите данные");
+        }
+
+        private void patronymic_b_Click(object sender, RoutedEventArgs e)
+        {
+            if (patronymic_t.Text != "")
+            {
+                usersTableAdapter.UpdateQuery3(patronymic_t.Text, trysi);
+                patronymic_s.Content = patronymic_t.Text;
+                patronymic_t.Text = null;
+            }
+            else MessageBox.Show("Введите данные");
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.Show();
+            this.Close();
         }
     }
 }
