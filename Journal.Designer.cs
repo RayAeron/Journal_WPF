@@ -32,15 +32,17 @@ namespace Journal_WPF {
         
         private usersDataTable tableusers;
         
+        private Mark_VDataTable tableMark_V;
+        
         private global::System.Data.DataRelation relationFK__disciplin__id_gr__619B8048;
         
         private global::System.Data.DataRelation relationFK__disciplin__id_te__628FA481;
         
-        private global::System.Data.DataRelation relationFK__mark__id_discipl__656C112C;
+        private global::System.Data.DataRelation relationFK__users__id_group__5EBF139D;
         
         private global::System.Data.DataRelation relationFK__mark__id_student__66603565;
         
-        private global::System.Data.DataRelation relationFK__users__id_group__5EBF139D;
+        private global::System.Data.DataRelation relationFK__mark__id_discipl__656C112C;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -81,6 +83,9 @@ namespace Journal_WPF {
                 }
                 if ((ds.Tables["users"] != null)) {
                     base.Tables.Add(new usersDataTable(ds.Tables["users"]));
+                }
+                if ((ds.Tables["Mark_V"] != null)) {
+                    base.Tables.Add(new Mark_VDataTable(ds.Tables["Mark_V"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -137,6 +142,16 @@ namespace Journal_WPF {
         public usersDataTable users {
             get {
                 return this.tableusers;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Mark_VDataTable Mark_V {
+            get {
+                return this.tableMark_V;
             }
         }
         
@@ -219,6 +234,9 @@ namespace Journal_WPF {
                 if ((ds.Tables["users"] != null)) {
                     base.Tables.Add(new usersDataTable(ds.Tables["users"]));
                 }
+                if ((ds.Tables["Mark_V"] != null)) {
+                    base.Tables.Add(new Mark_VDataTable(ds.Tables["Mark_V"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -276,11 +294,17 @@ namespace Journal_WPF {
                     this.tableusers.InitVars();
                 }
             }
+            this.tableMark_V = ((Mark_VDataTable)(base.Tables["Mark_V"]));
+            if ((initTable == true)) {
+                if ((this.tableMark_V != null)) {
+                    this.tableMark_V.InitVars();
+                }
+            }
             this.relationFK__disciplin__id_gr__619B8048 = this.Relations["FK__disciplin__id_gr__619B8048"];
             this.relationFK__disciplin__id_te__628FA481 = this.Relations["FK__disciplin__id_te__628FA481"];
-            this.relationFK__mark__id_discipl__656C112C = this.Relations["FK__mark__id_discipl__656C112C"];
-            this.relationFK__mark__id_student__66603565 = this.Relations["FK__mark__id_student__66603565"];
             this.relationFK__users__id_group__5EBF139D = this.Relations["FK__users__id_group__5EBF139D"];
+            this.relationFK__mark__id_student__66603565 = this.Relations["FK__mark__id_student__66603565"];
+            this.relationFK__mark__id_discipl__656C112C = this.Relations["FK__mark__id_discipl__656C112C"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -299,6 +323,8 @@ namespace Journal_WPF {
             base.Tables.Add(this.tablemark);
             this.tableusers = new usersDataTable();
             base.Tables.Add(this.tableusers);
+            this.tableMark_V = new Mark_VDataTable();
+            base.Tables.Add(this.tableMark_V);
             this.relationFK__disciplin__id_gr__619B8048 = new global::System.Data.DataRelation("FK__disciplin__id_gr__619B8048", new global::System.Data.DataColumn[] {
                         this.tablegroup.id_groupColumn}, new global::System.Data.DataColumn[] {
                         this.tablediscipline.id_groupColumn}, false);
@@ -307,18 +333,18 @@ namespace Journal_WPF {
                         this.tableusers.id_userColumn}, new global::System.Data.DataColumn[] {
                         this.tablediscipline.id_teacherColumn}, false);
             this.Relations.Add(this.relationFK__disciplin__id_te__628FA481);
-            this.relationFK__mark__id_discipl__656C112C = new global::System.Data.DataRelation("FK__mark__id_discipl__656C112C", new global::System.Data.DataColumn[] {
-                        this.tablediscipline.id_disciplineColumn}, new global::System.Data.DataColumn[] {
-                        this.tablemark.id_disciplineColumn}, false);
-            this.Relations.Add(this.relationFK__mark__id_discipl__656C112C);
-            this.relationFK__mark__id_student__66603565 = new global::System.Data.DataRelation("FK__mark__id_student__66603565", new global::System.Data.DataColumn[] {
-                        this.tableusers.id_userColumn}, new global::System.Data.DataColumn[] {
-                        this.tablemark.id_studentColumn}, false);
-            this.Relations.Add(this.relationFK__mark__id_student__66603565);
             this.relationFK__users__id_group__5EBF139D = new global::System.Data.DataRelation("FK__users__id_group__5EBF139D", new global::System.Data.DataColumn[] {
                         this.tablegroup.id_groupColumn}, new global::System.Data.DataColumn[] {
                         this.tableusers.id_groupColumn}, false);
             this.Relations.Add(this.relationFK__users__id_group__5EBF139D);
+            this.relationFK__mark__id_student__66603565 = new global::System.Data.DataRelation("FK__mark__id_student__66603565", new global::System.Data.DataColumn[] {
+                        this.tableusers.id_userColumn}, new global::System.Data.DataColumn[] {
+                        this.tablemark.id_studentColumn}, false);
+            this.Relations.Add(this.relationFK__mark__id_student__66603565);
+            this.relationFK__mark__id_discipl__656C112C = new global::System.Data.DataRelation("FK__mark__id_discipl__656C112C", new global::System.Data.DataColumn[] {
+                        this.tablediscipline.id_disciplineColumn}, new global::System.Data.DataColumn[] {
+                        this.tablemark.id_disciplineColumn}, false);
+            this.Relations.Add(this.relationFK__mark__id_discipl__656C112C);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -342,6 +368,12 @@ namespace Journal_WPF {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeusers() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeMark_V() {
             return false;
         }
         
@@ -411,6 +443,9 @@ namespace Journal_WPF {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void usersRowChangeEventHandler(object sender, usersRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void Mark_VRowChangeEventHandler(object sender, Mark_VRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1182,13 +1217,6 @@ namespace Journal_WPF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public markRow FindByid_mark(int id_mark) {
-                return ((markRow)(this.Rows.Find(new object[] {
-                            id_mark})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 markDataTable cln = ((markDataTable)(base.Clone()));
                 cln.InitVars();
@@ -1225,7 +1253,7 @@ namespace Journal_WPF {
                 this.columnid_student = new global::System.Data.DataColumn("id_student", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_student);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid_mark}, true));
+                                this.columnid_mark}, false));
                 this.columnid_mark.AutoIncrement = true;
                 this.columnid_mark.AutoIncrementSeed = -1;
                 this.columnid_mark.AutoIncrementStep = -1;
@@ -1737,6 +1765,357 @@ namespace Journal_WPF {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Mark_VDataTable : global::System.Data.TypedTableBase<Mark_VRow> {
+            
+            private global::System.Data.DataColumn columnОценка;
+            
+            private global::System.Data.DataColumn columnДата_оценки;
+            
+            private global::System.Data.DataColumn columnФамилия;
+            
+            private global::System.Data.DataColumn columnИмя;
+            
+            private global::System.Data.DataColumn columnОтчество;
+            
+            private global::System.Data.DataColumn columnПочта;
+            
+            private global::System.Data.DataColumn columnНазвание_дисциплины;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Mark_VDataTable() {
+                this.TableName = "Mark_V";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Mark_VDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected Mark_VDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ОценкаColumn {
+                get {
+                    return this.columnОценка;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Дата_оценкиColumn {
+                get {
+                    return this.columnДата_оценки;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ФамилияColumn {
+                get {
+                    return this.columnФамилия;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ИмяColumn {
+                get {
+                    return this.columnИмя;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ОтчествоColumn {
+                get {
+                    return this.columnОтчество;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ПочтаColumn {
+                get {
+                    return this.columnПочта;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Название_дисциплиныColumn {
+                get {
+                    return this.columnНазвание_дисциплины;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Mark_VRow this[int index] {
+                get {
+                    return ((Mark_VRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Mark_VRowChangeEventHandler Mark_VRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Mark_VRowChangeEventHandler Mark_VRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Mark_VRowChangeEventHandler Mark_VRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Mark_VRowChangeEventHandler Mark_VRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddMark_VRow(Mark_VRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Mark_VRow AddMark_VRow(string Оценка, string Дата_оценки, string Фамилия, string Имя, string Отчество, string Почта, string Название_дисциплины) {
+                Mark_VRow rowMark_VRow = ((Mark_VRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Оценка,
+                        Дата_оценки,
+                        Фамилия,
+                        Имя,
+                        Отчество,
+                        Почта,
+                        Название_дисциплины};
+                rowMark_VRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMark_VRow);
+                return rowMark_VRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Mark_VDataTable cln = ((Mark_VDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Mark_VDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnОценка = base.Columns["Оценка"];
+                this.columnДата_оценки = base.Columns["Дата оценки"];
+                this.columnФамилия = base.Columns["Фамилия"];
+                this.columnИмя = base.Columns["Имя"];
+                this.columnОтчество = base.Columns["Отчество"];
+                this.columnПочта = base.Columns["Почта"];
+                this.columnНазвание_дисциплины = base.Columns["Название дисциплины"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnОценка = new global::System.Data.DataColumn("Оценка", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnОценка);
+                this.columnДата_оценки = new global::System.Data.DataColumn("Дата оценки", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnДата_оценки);
+                this.columnФамилия = new global::System.Data.DataColumn("Фамилия", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnФамилия);
+                this.columnИмя = new global::System.Data.DataColumn("Имя", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnИмя);
+                this.columnОтчество = new global::System.Data.DataColumn("Отчество", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnОтчество);
+                this.columnПочта = new global::System.Data.DataColumn("Почта", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnПочта);
+                this.columnНазвание_дисциплины = new global::System.Data.DataColumn("Название дисциплины", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНазвание_дисциплины);
+                this.columnОценка.AllowDBNull = false;
+                this.columnОценка.Caption = "Mark";
+                this.columnОценка.MaxLength = 5;
+                this.columnДата_оценки.AllowDBNull = false;
+                this.columnДата_оценки.Caption = "Date_mark";
+                this.columnДата_оценки.MaxLength = 20;
+                this.columnФамилия.AllowDBNull = false;
+                this.columnФамилия.Caption = "Surname";
+                this.columnФамилия.MaxLength = 50;
+                this.columnИмя.AllowDBNull = false;
+                this.columnИмя.Caption = "Name";
+                this.columnИмя.MaxLength = 50;
+                this.columnОтчество.Caption = "Patronymic";
+                this.columnОтчество.MaxLength = 50;
+                this.columnПочта.AllowDBNull = false;
+                this.columnПочта.Caption = "Email";
+                this.columnПочта.MaxLength = 50;
+                this.columnНазвание_дисциплины.AllowDBNull = false;
+                this.columnНазвание_дисциплины.Caption = "Name_discipline";
+                this.columnНазвание_дисциплины.MaxLength = 100;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Mark_VRow NewMark_VRow() {
+                return ((Mark_VRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Mark_VRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Mark_VRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Mark_VRowChanged != null)) {
+                    this.Mark_VRowChanged(this, new Mark_VRowChangeEvent(((Mark_VRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Mark_VRowChanging != null)) {
+                    this.Mark_VRowChanging(this, new Mark_VRowChangeEvent(((Mark_VRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Mark_VRowDeleted != null)) {
+                    this.Mark_VRowDeleted(this, new Mark_VRowChangeEvent(((Mark_VRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Mark_VRowDeleting != null)) {
+                    this.Mark_VRowDeleting(this, new Mark_VRowChangeEvent(((Mark_VRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveMark_VRow(Mark_VRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Journal ds = new Journal();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Mark_VDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class disciplineRow : global::System.Data.DataRow {
@@ -2024,23 +2403,23 @@ namespace Journal_WPF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public disciplineRow disciplineRow {
-                get {
-                    return ((disciplineRow)(this.GetParentRow(this.Table.ParentRelations["FK__mark__id_discipl__656C112C"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__mark__id_discipl__656C112C"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public usersRow usersRow {
                 get {
                     return ((usersRow)(this.GetParentRow(this.Table.ParentRelations["FK__mark__id_student__66603565"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__mark__id_student__66603565"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public disciplineRow disciplineRow {
+                get {
+                    return ((disciplineRow)(this.GetParentRow(this.Table.ParentRelations["FK__mark__id_discipl__656C112C"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__mark__id_discipl__656C112C"]);
                 }
             }
             
@@ -2240,6 +2619,115 @@ namespace Journal_WPF {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Mark_VRow : global::System.Data.DataRow {
+            
+            private Mark_VDataTable tableMark_V;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Mark_VRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableMark_V = ((Mark_VDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Оценка {
+                get {
+                    return ((string)(this[this.tableMark_V.ОценкаColumn]));
+                }
+                set {
+                    this[this.tableMark_V.ОценкаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Дата_оценки {
+                get {
+                    return ((string)(this[this.tableMark_V.Дата_оценкиColumn]));
+                }
+                set {
+                    this[this.tableMark_V.Дата_оценкиColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Фамилия {
+                get {
+                    return ((string)(this[this.tableMark_V.ФамилияColumn]));
+                }
+                set {
+                    this[this.tableMark_V.ФамилияColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Имя {
+                get {
+                    return ((string)(this[this.tableMark_V.ИмяColumn]));
+                }
+                set {
+                    this[this.tableMark_V.ИмяColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Отчество {
+                get {
+                    try {
+                        return ((string)(this[this.tableMark_V.ОтчествоColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Отчество\' в таблице \'Mark_V\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMark_V.ОтчествоColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Почта {
+                get {
+                    return ((string)(this[this.tableMark_V.ПочтаColumn]));
+                }
+                set {
+                    this[this.tableMark_V.ПочтаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Название_дисциплины {
+                get {
+                    return ((string)(this[this.tableMark_V.Название_дисциплиныColumn]));
+                }
+                set {
+                    this[this.tableMark_V.Название_дисциплиныColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsОтчествоNull() {
+                return this.IsNull(this.tableMark_V.ОтчествоColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetОтчествоNull() {
+                this[this.tableMark_V.ОтчествоColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2361,6 +2849,40 @@ namespace Journal_WPF {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public usersRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class Mark_VRowChangeEvent : global::System.EventArgs {
+            
+            private Mark_VRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Mark_VRowChangeEvent(Mark_VRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Mark_VRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3637,14 +4159,6 @@ SELECT id_mark, Mark, Date_mark, id_discipline, id_student FROM mark WHERE (id_m
                 }
             }
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Mark, string Date_mark, global::System.Nullable<int> id_discipline, global::System.Nullable<int> id_student, int Original_id_mark, string Original_Mark, string Original_Date_mark, global::System.Nullable<int> Original_id_discipline, global::System.Nullable<int> Original_id_student) {
-            return this.Update(Mark, Date_mark, id_discipline, id_student, Original_id_mark, Original_Mark, Original_Date_mark, Original_id_discipline, Original_id_student, Original_id_mark);
-        }
     }
     
     /// <summary>
@@ -4491,6 +5005,264 @@ SELECT id_user, Surname, Name, Patronymic, Email, Pass, is_staff, id_group FROM 
                 }
             }
             return returnValue;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Mark_VTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public Mark_VTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Mark_V";
+            tableMapping.ColumnMappings.Add("Mark", "Оценка");
+            tableMapping.ColumnMappings.Add("Date_mark", "Дата оценки");
+            tableMapping.ColumnMappings.Add("Surname", "Фамилия");
+            tableMapping.ColumnMappings.Add("Name", "Имя");
+            tableMapping.ColumnMappings.Add("Patronymic", "Отчество");
+            tableMapping.ColumnMappings.Add("Email", "Почта");
+            tableMapping.ColumnMappings.Add("Name_discipline", "Название дисциплины");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Journal_WPF.Properties.Settings.Default.Journal_appConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM db" +
+                "o.Mark_V";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM db" +
+                "o.Mark_V WHERE Email = @Email";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM db" +
+                "o.Mark_V WHERE Name_discipline =@Name_discipline";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name_discipline", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Name_discipline", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Journal.Mark_VDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Journal.Mark_VDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Journal.Mark_VDataTable dataTable = new Journal.Mark_VDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(Journal.Mark_VDataTable dataTable, string Email) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Email));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Journal.Mark_VDataTable GetDataBy(string Email) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Email));
+            }
+            Journal.Mark_VDataTable dataTable = new Journal.Mark_VDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(Journal.Mark_VDataTable dataTable, string Name_discipline) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Name_discipline == null)) {
+                throw new global::System.ArgumentNullException("Name_discipline");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Name_discipline));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Journal.Mark_VDataTable GetDataBy1(string Name_discipline) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Name_discipline == null)) {
+                throw new global::System.ArgumentNullException("Name_discipline");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Name_discipline));
+            }
+            Journal.Mark_VDataTable dataTable = new Journal.Mark_VDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

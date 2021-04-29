@@ -341,7 +341,7 @@ SELECT id_user, Surname, Name, Patronymic, Email, Pass, is_staff, id_group FROM 
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="Journal_appConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery1" Modifier="Public" Name="InsertQuery1" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="InsertQuery1">
+              <DbSource ConnectionRef="Journal_appConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery1" Modifier="Public" Name="InsertQuery1" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="InsertQuery1">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[users] ([Surname], [Name], [Patronymic], [Email], [Pass], [is_staff]) VALUES (@Surname, @Name, @Patronymic, @Email, @Pass, @is_staff);
@@ -357,7 +357,7 @@ SELECT id_user, Surname, Name, Patronymic, Email, Pass, is_staff, id_group FROM 
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="Journal_appConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="UpdateQuery">
+              <DbSource ConnectionRef="Journal_appConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="UpdateQuery">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       users
@@ -369,6 +369,49 @@ WHERE         (Email = @Email)</CommandText>
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Mark_VTableAdapter" GeneratorDataComponentClassName="Mark_VTableAdapter" Name="Mark_V" UserDataComponentName="Mark_VTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Journal_appConnectionString (Settings)" DbObjectName="Journal_app.dbo.Mark_V" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM dbo.Mark_V</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Mark" DataSetColumn="Оценка" />
+              <Mapping SourceColumn="Date_mark" DataSetColumn="Дата оценки" />
+              <Mapping SourceColumn="Surname" DataSetColumn="Фамилия" />
+              <Mapping SourceColumn="Name" DataSetColumn="Имя" />
+              <Mapping SourceColumn="Patronymic" DataSetColumn="Отчество" />
+              <Mapping SourceColumn="Email" DataSetColumn="Почта" />
+              <Mapping SourceColumn="Name_discipline" DataSetColumn="Название дисциплины" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Journal_appConnectionString (Settings)" DbObjectName="Journal_app.dbo.Mark_V" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM dbo.Mark_V WHERE Email = @Email</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Email" ColumnName="Email" DataSourceName="Journal_app.dbo.Mark_V" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Journal_appConnectionString (Settings)" DbObjectName="Journal_app.dbo.Mark_V" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM dbo.Mark_V WHERE Name_discipline =@Name_discipline</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Name_discipline" ColumnName="Name_discipline" DataSourceName="Journal_app.dbo.Mark_V" DataTypeServer="varchar(100)" DbType="AnsiString" Direction="Input" ParameterName="@Name_discipline" Precision="0" ProviderType="VarChar" Scale="0" Size="100" SourceColumn="Name_discipline" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
               </DbSource>
             </Sources>
           </TableAdapter>
@@ -497,6 +540,61 @@ WHERE         (Email = @Email)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Mark_V" msprop:Generator_TableClassName="Mark_VDataTable" msprop:Generator_TableVarName="tableMark_V" msprop:Generator_TablePropName="Mark_V" msprop:Generator_RowDeletingName="Mark_VRowDeleting" msprop:Generator_RowChangingName="Mark_VRowChanging" msprop:Generator_RowEvHandlerName="Mark_VRowChangeEventHandler" msprop:Generator_RowDeletedName="Mark_VRowDeleted" msprop:Generator_UserTableName="Mark_V" msprop:Generator_RowChangedName="Mark_VRowChanged" msprop:Generator_RowEvArgName="Mark_VRowChangeEvent" msprop:Generator_RowClassName="Mark_VRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Оценка" msdata:Caption="Mark" msprop:Generator_ColumnVarNameInTable="columnОценка" msprop:Generator_ColumnPropNameInRow="Оценка" msprop:Generator_ColumnPropNameInTable="ОценкаColumn" msprop:Generator_UserColumnName="Оценка">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Дата_x0020_оценки" msdata:Caption="Date_mark" msprop:Generator_ColumnVarNameInTable="columnДата_оценки" msprop:Generator_ColumnPropNameInRow="Дата_оценки" msprop:Generator_ColumnPropNameInTable="Дата_оценкиColumn" msprop:Generator_UserColumnName="Дата оценки">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Фамилия" msdata:Caption="Surname" msprop:Generator_ColumnVarNameInTable="columnФамилия" msprop:Generator_ColumnPropNameInRow="Фамилия" msprop:Generator_ColumnPropNameInTable="ФамилияColumn" msprop:Generator_UserColumnName="Фамилия">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Имя" msdata:Caption="Name" msprop:Generator_ColumnVarNameInTable="columnИмя" msprop:Generator_ColumnPropNameInRow="Имя" msprop:Generator_ColumnPropNameInTable="ИмяColumn" msprop:Generator_UserColumnName="Имя">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Отчество" msdata:Caption="Patronymic" msprop:Generator_ColumnVarNameInTable="columnОтчество" msprop:Generator_ColumnPropNameInRow="Отчество" msprop:Generator_ColumnPropNameInTable="ОтчествоColumn" msprop:Generator_UserColumnName="Отчество" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Почта" msdata:Caption="Email" msprop:Generator_ColumnVarNameInTable="columnПочта" msprop:Generator_ColumnPropNameInRow="Почта" msprop:Generator_ColumnPropNameInTable="ПочтаColumn" msprop:Generator_UserColumnName="Почта">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Название_x0020_дисциплины" msdata:Caption="Name_discipline" msprop:Generator_ColumnVarNameInTable="columnНазвание_дисциплины" msprop:Generator_ColumnPropNameInRow="Название_дисциплины" msprop:Generator_ColumnPropNameInTable="Название_дисциплиныColumn" msprop:Generator_UserColumnName="Название дисциплины">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -507,7 +605,7 @@ WHERE         (Email = @Email)</CommandText>
       <xs:selector xpath=".//mstns:group" />
       <xs:field xpath="mstns:id_group" />
     </xs:unique>
-    <xs:unique name="mark_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+    <xs:unique name="mark_Constraint1" msdata:ConstraintName="Constraint1">
       <xs:selector xpath=".//mstns:mark" />
       <xs:field xpath="mstns:id_mark" />
     </xs:unique>
@@ -520,9 +618,9 @@ WHERE         (Email = @Email)</CommandText>
     <xs:appinfo>
       <msdata:Relationship name="FK__disciplin__id_gr__619B8048" msdata:parent="group" msdata:child="discipline" msdata:parentkey="id_group" msdata:childkey="id_group" msprop:Generator_UserChildTable="discipline" msprop:Generator_ChildPropName="GetdisciplineRows" msprop:Generator_UserRelationName="FK__disciplin__id_gr__619B8048" msprop:Generator_RelationVarName="relationFK__disciplin__id_gr__619B8048" msprop:Generator_UserParentTable="group" msprop:Generator_ParentPropName="groupRow" />
       <msdata:Relationship name="FK__disciplin__id_te__628FA481" msdata:parent="users" msdata:child="discipline" msdata:parentkey="id_user" msdata:childkey="id_teacher" msprop:Generator_UserChildTable="discipline" msprop:Generator_ChildPropName="GetdisciplineRows" msprop:Generator_UserRelationName="FK__disciplin__id_te__628FA481" msprop:Generator_RelationVarName="relationFK__disciplin__id_te__628FA481" msprop:Generator_UserParentTable="users" msprop:Generator_ParentPropName="usersRow" />
-      <msdata:Relationship name="FK__mark__id_discipl__656C112C" msdata:parent="discipline" msdata:child="mark" msdata:parentkey="id_discipline" msdata:childkey="id_discipline" msprop:Generator_UserChildTable="mark" msprop:Generator_ChildPropName="GetmarkRows" msprop:Generator_UserRelationName="FK__mark__id_discipl__656C112C" msprop:Generator_ParentPropName="disciplineRow" msprop:Generator_RelationVarName="relationFK__mark__id_discipl__656C112C" msprop:Generator_UserParentTable="discipline" />
-      <msdata:Relationship name="FK__mark__id_student__66603565" msdata:parent="users" msdata:child="mark" msdata:parentkey="id_user" msdata:childkey="id_student" msprop:Generator_UserChildTable="mark" msprop:Generator_ChildPropName="GetmarkRows" msprop:Generator_UserRelationName="FK__mark__id_student__66603565" msprop:Generator_RelationVarName="relationFK__mark__id_student__66603565" msprop:Generator_UserParentTable="users" msprop:Generator_ParentPropName="usersRow" />
       <msdata:Relationship name="FK__users__id_group__5EBF139D" msdata:parent="group" msdata:child="users" msdata:parentkey="id_group" msdata:childkey="id_group" msprop:Generator_UserChildTable="users" msprop:Generator_ChildPropName="GetusersRows" msprop:Generator_UserRelationName="FK__users__id_group__5EBF139D" msprop:Generator_ParentPropName="groupRow" msprop:Generator_RelationVarName="relationFK__users__id_group__5EBF139D" msprop:Generator_UserParentTable="group" />
+      <msdata:Relationship name="FK__mark__id_student__66603565" msdata:parent="users" msdata:child="mark" msdata:parentkey="id_user" msdata:childkey="id_student" msprop:Generator_UserChildTable="mark" msprop:Generator_ChildPropName="GetmarkRows" msprop:Generator_UserRelationName="FK__mark__id_student__66603565" msprop:Generator_RelationVarName="relationFK__mark__id_student__66603565" msprop:Generator_UserParentTable="users" msprop:Generator_ParentPropName="usersRow" />
+      <msdata:Relationship name="FK__mark__id_discipl__656C112C" msdata:parent="discipline" msdata:child="mark" msdata:parentkey="id_discipline" msdata:childkey="id_discipline" msprop:Generator_UserChildTable="mark" msprop:Generator_ChildPropName="GetmarkRows" msprop:Generator_UserRelationName="FK__mark__id_discipl__656C112C" msprop:Generator_ParentPropName="disciplineRow" msprop:Generator_RelationVarName="relationFK__mark__id_discipl__656C112C" msprop:Generator_UserParentTable="discipline" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

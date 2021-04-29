@@ -142,10 +142,25 @@ namespace Journal_WPF
                 usersTableAdapter.FillBy1(Journal.users, login_l.Text, pass_l.Password);
                 if (!Journal.users.Rows.Count.Equals(0))
                 {
-                    //mainPolyclinic mainPolyclinic = new mainPolyclinic(name);
-                    //mainPolyclinic.Show();
-                    //this.Close();
-                    MessageBox.Show("Успешно пидрила");
+                    usersTableAdapter.FillBy2(Journal.users, login_l.Text);
+                    if (!Journal.users.Rows.Count.Equals(0))
+                    {
+                        string permission = Convert.ToString(Journal.users.Rows[0]["is_staff"]);
+                        switch (permission)
+                        {
+                            case "yes":
+                                MessageBox.Show("В разработке...");
+                                break;
+
+                            case "no":
+                                Student Student = new Student();
+                                Student.login.Content = login_l.Text;
+                                Student.Show();
+                                this.Close();
+                                break;
+                        }
+                    }
+                    
                 }
                 else error.Content = "Логин или пароль не совпадают";
             }
