@@ -25,7 +25,8 @@ namespace Journal_WPF
         usersTableAdapter usersTableAdapter;
         markTableAdapter markTableAdapter;
         Mark_VTableAdapter Mark_VTableAdapter;
-        string trysi;
+        disciplineTableAdapter disciplineTableAdapter;
+        string trysi;  
         public Teacher()
         {
             InitializeComponent();
@@ -44,6 +45,20 @@ namespace Journal_WPF
             markTableAdapter = new markTableAdapter();
             markTableAdapter.Fill(Journal.mark);
 
+            disciplineTableAdapter = new disciplineTableAdapter();
+            disciplineTableAdapter.Fill(Journal.discipline);
+
+            for (int i = 0; i < Journal.users.Rows.Count; i++)
+            {
+                string student_tyty = Journal.users.Rows[i].ItemArray[4].ToString();
+                mark_s.Items.Add(student_tyty);
+            }
+
+            //for (int i = 0; i < Journal.discipline.Rows.Count; i++)
+            //{
+            //    string bd_discipline = Journal.discipline.Rows[i].ItemArray[1].ToString();
+            //    mark_d.Items.Add(bd_discipline);
+            //}
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
@@ -80,6 +95,7 @@ namespace Journal_WPF
                 Title = "Добавить оценку";
                 string trysi = Convert.ToString(login.Content);
                 Mark_VTableAdapter.FillBy(Journal.Mark_V, trysi);
+                mark_d.Items.Add("");
             }
             if (((Button)sender).Content.Equals("Назад"))
             {
@@ -142,11 +158,38 @@ namespace Journal_WPF
 
         private void mark_ad_Click(object sender, RoutedEventArgs e)
         {
-            if (mark_d.Text != "" && mark_s.Text != "" && mark_date.Text != "" && mark_n.Text != "")
+            string users_iner = "";
+            usersTableAdapter.FillBy(Journal.users, mark_s.Text);
+            if (!Journal.group.Rows.Count.Equals(0))
             {
-                markTableAdapter.InsertQuery(mark_n.Text, mark_date.Text, mark_s.Text, mark_d.Text);
+                for (int i = 0; i < Journal.group.Rows.Count; i++)
+                {
+                    string users_id = Convert.ToString(Journal.group.Rows[i]["id_users"]);
+                    users_iner = users_id;
+                }
             }
-            else MessageBox.Show("Введите данные");
+
+            //string discipline_iner = "";
+            //disciplineTableAdapter.FillBy(Journal.discipline, mark_s.Text);
+            //if (!Journal.discipline.Rows.Count.Equals(0))
+            //{
+            //    for (int i = 0; i < Journal.discipline.Rows.Count; i++)
+            //    {
+            //        string discipline_id = Convert.ToString(Journal.discipline.Rows[i]["id_discipline"]);
+            //        discipline_iner = discipline_id;
+            //    }
+            //}
+
+            //if (mark_d.Text != "" && mark_s.Text != "" && mark_date.Text != "" && mark_n.Text != "")
+            //{
+            //    //markTableAdapter.InsertQuery(mark_n.Text, mark_date.Text, Convert.ToInt32(discipline_iner), Convert.ToInt32(users_iner));
+
+            //}
+            //else MessageBox.Show("Введите данные");
+            num.Content = mark_d.Text;
+            date.Content = mark_date;
+            //dis.Content = discipline_iner;
+            stud.Content = users_iner;
         }
     }
 }
