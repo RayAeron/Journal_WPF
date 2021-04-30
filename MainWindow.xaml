@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="test" Height="489.286" Width="479.464" ResizeMode="CanMinimize" Background="#FF252525" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Canvas x:Name="login_canv" Visibility="Visible">
+        <Canvas x:Name="login_canv" Visibility="Hidden">
             <Button x:Name="register" Content="Регистрация" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="320" Height="31" FontSize="12" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="back_l"/>
             <Button x:Name="vhod" Content="Вход" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="284" Height="31" FontSize="12" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="vhod_Click"/>
             <Label x:Name="pass_recovery" Content="Восстановление пароля" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="178" FontSize="11"  Background="{x:Null}" MouseUp="pass_recovery_MouseUp" Canvas.Left="151" Canvas.Top="212" HorizontalContentAlignment="Center" Foreground="#FF0767B3"/>
@@ -19,7 +19,8 @@
             <Label x:Name="error" Canvas.Left="151" Canvas.Top="243" Width="178" Foreground="Red" FontSize="10" HorizontalContentAlignment="Center" Height="25"/>
             <Image x:Name="n_d" Height="32" Canvas.Left="429" Canvas.Top="10" Width="34" Source="d.png" MouseUp="n_d_MouseUp"/>
         </Canvas>
-        <Canvas x:Name="reg_canv" Visibility="Hidden">
+        <Canvas x:Name="reg_canv" Visibility="Visible">
+            <Image x:Name="n_d2" Height="32" Canvas.Left="429" Canvas.Top="10" Width="34" Source="d.png" MouseUp="n_d2_MouseUp"/>
             <Button x:Name="reg" Content="Регистрация" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="363" Height="31" FontSize="12" HorizontalContentAlignment="Center" mah:ControlsHelper.FocusBorderBrush="{x:Null}" Click="reg_Click"/>
             <Button x:Name="back" Content="Назад" Canvas.Left="151" Width="178" BorderBrush="{x:Null}" Background="#FF0767B3" Canvas.Top="399" Height="31" FontSize="12" Click="back_l" HorizontalContentAlignment="Center" mah:ControlsHelper.FocusBorderBrush="{x:Null}"/>
             <Label Content="Логин*" Canvas.Left="61" Canvas.Top="91" Foreground="#FF0767B3" Width="178" HorizontalContentAlignment="Center"/>

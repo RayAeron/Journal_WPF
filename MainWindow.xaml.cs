@@ -108,7 +108,7 @@ namespace Journal_WPF
                 usersTableAdapter.FillBy(Journal.users, login_r.Text);
                 if (Journal.users.Rows.Count.Equals(0))
                 {
-                    if(check == "yes")
+                    if (check == "yes")
                     {
                         usersTableAdapter.InsertQuery1(surname.Text, name.Text, patronymic.Text, login_r.Text, pass_r.Password, check);
                     }
@@ -148,7 +148,10 @@ namespace Journal_WPF
                         switch (permission)
                         {
                             case "yes":
-                                MessageBox.Show("В разработке...");
+                                Teacher Teacher = new Teacher();
+                                Teacher.login.Content = login_l.Text;
+                                Teacher.Show();
+                                this.Close();
                                 break;
 
                             case "no":
@@ -159,7 +162,7 @@ namespace Journal_WPF
                                 break;
                         }
                     }
-                    
+
                 }
                 else error.Content = "Логин или пароль не совпадают";
             }
@@ -192,15 +195,45 @@ namespace Journal_WPF
                 ImageSourceConverter imgs = new ImageSourceConverter();
                 n_d.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"n.png"));
                 theme++;
-                
-                
+                var bc = new BrushConverter();
+                login_canv.Background = (Brush)bc.ConvertFrom("#FFFFFFFF");
+                login_l.Background = (Brush)bc.ConvertFrom("#FFC9CACF");
+                login_l.Foreground = (Brush)bc.ConvertFrom("#FF000000");
+                pass_l.Background = (Brush)bc.ConvertFrom("#FFC9CACF");
+                pass_l.Foreground = (Brush)bc.ConvertFrom("#FF000000");
             }
             else
             {
                 ImageSourceConverter imgs = new ImageSourceConverter();
                 n_d.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"d.png"));
                 theme--;
+                var bc = new BrushConverter();
+                login_canv.Background = (Brush)bc.ConvertFrom("#FF252525");
+                login_l.Background = (Brush)bc.ConvertFrom("#FF38393E");
+                login_l.Foreground = (Brush)bc.ConvertFrom("#FFE6EAFE");
+                pass_l.Background = (Brush)bc.ConvertFrom("#FF38393E");
+                pass_l.Foreground = (Brush)bc.ConvertFrom("#FFE6EAFE");
+            }
+        }
+        int theme2 = 0;
+        private void n_d2_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (theme2 == 0)
+            {
+                ImageSourceConverter imgs = new ImageSourceConverter();
+                n_d.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"n.png"));
+                theme++;
+                var bc = new BrushConverter();
+            }
+            else
+            {
+                ImageSourceConverter imgs = new ImageSourceConverter();
+                n_d.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"d.png"));
+                theme--;
+                var bc = new BrushConverter();
+
             }
         }
     }
 }
+
