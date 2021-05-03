@@ -221,15 +221,15 @@ namespace Journal_WPF
             if (theme2 == 0)
             {
                 ImageSourceConverter imgs = new ImageSourceConverter();
-                n_d.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"n.png"));
-                theme++;
+                n_d2.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"n.png"));
+                theme2++;
                 var bc = new BrushConverter();
             }
             else
             {
                 ImageSourceConverter imgs = new ImageSourceConverter();
-                n_d.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"d.png"));
-                theme--;
+                n_d2.SetValue(Image.SourceProperty, imgs.ConvertFromString(@"d.png"));
+                theme2--;
                 var bc = new BrushConverter();
 
             }

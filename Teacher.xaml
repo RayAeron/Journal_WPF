@@ -1,10 +1,11 @@
-﻿<mah:MetroWindow x:Class="Journal_WPF.Teacher"
+﻿<mah:MetroWindow
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Journal_WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Journal_WPF.Teacher"
         mc:Ignorable="d"
         Title="Панель преподавателя" Height="450" Width="800" ResizeMode="CanMinimize" Background="#FF252525" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -12,7 +13,7 @@
             <Label x:Name="login" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF0767B3" FontWeight="Bold" FontSize="16"/>
             <Button x:Name="mark_add" Content="Добавить оценку" Canvas.Left="10" BorderBrush="#FF0767B3" Background="{x:Null}" Canvas.Top="52" FontSize="16" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Width="375" Foreground="#FF0767B3" Height="360" Click="back_l"/>
             <Button x:Name="personal_cabinet" Content="Личный кабинет" BorderBrush="#FF0767B3" Background="{x:Null}" FontSize="16" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Width="375" Foreground="#FF0767B3" Canvas.Left="409" Canvas.Top="52" Height="360" Click="back_l"/>
-            <Label Content="|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xD;&#xA;|&#xD;&#xA;|" Canvas.Left="385" Canvas.Top="44" Foreground="#FF0767B3" Height="377" Width="24" HorizontalContentAlignment="Center" IsEnabled="False"/>
+            <Label Content="|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|&#xA;|" Canvas.Left="385" Canvas.Top="44" Foreground="#FF0767B3" Height="377" Width="24" HorizontalContentAlignment="Center" IsEnabled="False"/>
             <Button x:Name="exit" Content="" Canvas.Left="742" Canvas.Top="10" Width="42" BorderBrush="{x:Null}" Foreground="{x:Null}" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Height="29" Click="exit_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="log_out_icon_128821.png" Stretch="Uniform"/>
@@ -21,16 +22,24 @@
         </Canvas>
         <Canvas x:Name="mark_canv" Visibility="Visible">
             <Button x:Name="back_mark" Content="Назад" Canvas.Left="619" BorderBrush="#FF0767B3" Canvas.Top="379" FontSize="14" Width="165" Foreground="White" Height="32" Click="back_l" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3"/>
-            <DataGrid x:Name="mark" Height="193" Canvas.Left="10" Canvas.Top="72" Width="774" Background="#FF252525" BorderBrush="#FF0767B3" Foreground="#FF0767B3" AutoGenerateColumns = "True"/>
-            <TextBox x:Name="mark_n" Height="26" Canvas.Left="27"  Canvas.Top="301" Width="116" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7" mah:ControlsHelper.MouseOverBorderBrush="#FF0078D7"/>
-            <TextBox x:Name="mark_date" Height="26" Canvas.Left="155"  Canvas.Top="301" Width="116" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7" mah:ControlsHelper.MouseOverBorderBrush="#FF0078D7"/>
+            <DataGrid x:Name="mark" Height="193" Canvas.Left="10" Canvas.Top="61" Width="774" Background="#FF252525" BorderBrush="#FF0767B3" Foreground="#FF0767B3" AutoGenerateColumns = "True"/>
+            <TextBox x:Name="mark_n" Height="26" Canvas.Left="18"  Canvas.Top="352" Width="116" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7" mah:ControlsHelper.MouseOverBorderBrush="#FF0078D7" Visibility="Hidden"/>
+            <TextBox x:Name="mark_date" Height="26" Canvas.Left="131"  Canvas.Top="312" Width="116" Background="#FF38393E" BorderBrush="{x:Null}" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7" mah:ControlsHelper.MouseOverBorderBrush="#FF0078D7" IsEnabled="False" Visibility="Hidden"/>
             <Button x:Name="mark_ad" Content="Добавить оценку" Canvas.Left="276" BorderBrush="#FF0767B3" Canvas.Top="379" FontSize="14" Width="165" Foreground="White" Height="32" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3" Click="mark_ad_Click"/>
-            <ComboBox x:Name="mark_s" Canvas.Left="427" Canvas.Top="302" Width="120"/>
-            <ComboBox x:Name="mark_d" Canvas.Left="285" Canvas.Top="302" Width="120"/>
-            <Label x:Name="num" Content="Label" Canvas.Left="62" Canvas.Top="36"/>
-            <Label x:Name="date" Content="Label" Canvas.Left="295" Canvas.Top="36"/>
-            <Label x:Name="dis" Content="Label" Canvas.Left="505" Canvas.Top="36"/>
-            <Label x:Name="stud" Content="Label" Canvas.Left="687" Canvas.Top="36"/>
+            <ComboBox x:Name="mark_d" Canvas.Left="252" Canvas.Top="312" Width="120" Foreground="#FF0767B3" BorderBrush="#FF0767B3"/>
+            <Label x:Name="num" Content="Оценка" Canvas.Left="54" Canvas.Top="283" Foreground="#FF0767B3"/>
+            <Label x:Name="date" Content="Дата" Canvas.Left="178" Canvas.Top="283" Foreground="#FF0767B3"/>
+            <Label x:Name="dis" Content="Дисциплина" Canvas.Left="276" Canvas.Top="283" Foreground="#FF0767B3"/>
+            <Label x:Name="stud" Content="Студент" Canvas.Left="417" Canvas.Top="284" Foreground="#FF0767B3"/>
+            <ComboBox x:Name="mark_student" Canvas.Left="377" Canvas.Top="312" Width="120" Foreground="#FF0767B3" BorderBrush="#FF0767B3"/>
+            <DatePicker x:Name="date_picker" Canvas.Left="132" Canvas.Top="312" Foreground="#FF0767B3" BorderBrush="#FF0767B3" CalendarClosed="DatePicker_CalendarClosed" Focusable="False" Width="115" HorizontalContentAlignment="Center"/>
+            <ComboBox x:Name="mark_select" Canvas.Left="31" Canvas.Top="313" Width="95" Foreground="#FF0767B3" BorderBrush="#FF0767B3" HorizontalContentAlignment="Center">
+                <TextBlock><Run Text="Н/Я"/></TextBlock>
+                <TextBlock><Run Text="2"/></TextBlock>
+                <TextBlock><Run Text="3"/></TextBlock>
+                <TextBlock><Run Text="4"/></TextBlock>
+                <TextBlock><Run Text="5"/></TextBlock>
+            </ComboBox>
         </Canvas>
         <Canvas x:Name="person_canv" Visibility="Hidden">
             <Button x:Name="back_person" Content="Назад" Canvas.Left="619" BorderBrush="#FF0767B3" Canvas.Top="379" FontSize="14" Width="165" Foreground="White" Height="32" Click="back_l" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3"/>
