@@ -5389,9 +5389,10 @@ SELECT id_user, Surname, Name, Patronymic, Email, Pass, is_staff, id_group FROM 
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM db" +
-                "o.Mark_V WHERE Name_discipline =@Name_discipline";
+                "o.Mark_V WHERE Name_discipline =@Name_discipline AND Email = @Email";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name_discipline", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Name_discipline", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5458,13 +5459,19 @@ SELECT id_user, Surname, Name, Patronymic, Email, Pass, is_staff, id_group FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy1(Journal.Mark_VDataTable dataTable, string Name_discipline) {
+        public virtual int FillBy1(Journal.Mark_VDataTable dataTable, string Name_discipline, string Email) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((Name_discipline == null)) {
                 throw new global::System.ArgumentNullException("Name_discipline");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Name_discipline));
+            }
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Email));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5477,13 +5484,19 @@ SELECT id_user, Surname, Name, Patronymic, Email, Pass, is_staff, id_group FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual Journal.Mark_VDataTable GetDataBy1(string Name_discipline) {
+        public virtual Journal.Mark_VDataTable GetDataBy1(string Name_discipline, string Email) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((Name_discipline == null)) {
                 throw new global::System.ArgumentNullException("Name_discipline");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Name_discipline));
+            }
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Email));
             }
             Journal.Mark_VDataTable dataTable = new Journal.Mark_VDataTable();
             this.Adapter.Fill(dataTable);

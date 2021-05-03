@@ -44,7 +44,6 @@ namespace Journal_WPF
             mark.IsReadOnly = true;
         }
 
-
         private void mark_Focus(Canvas main_canv, Canvas mark_canve)
         {
             main_canv.Visibility = Visibility.Hidden;
@@ -91,7 +90,6 @@ namespace Journal_WPF
                     surname_s.Content = Journal.users.Rows[0].ItemArray[1].ToString();
                     name_s.Content = Journal.users.Rows[0].ItemArray[2].ToString();
                     patronymic_s.Content = Journal.users.Rows[0].ItemArray[3].ToString();
-
                 }
             }
             if (((Button)sender).Content.Equals("Назад"))
@@ -103,7 +101,8 @@ namespace Journal_WPF
 
         private void search_btn_Click(object sender, RoutedEventArgs e)
         {
-            Mark_VTableAdapter.FillBy1(Journal.Mark_V, searh.Text);
+            Mark_VTableAdapter.FillBy1(Journal.Mark_V, searh.Text, Convert.ToString(login.Content));
+
         }
 
         private void surname_b_Click(object sender, RoutedEventArgs e)

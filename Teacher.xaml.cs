@@ -80,6 +80,12 @@ namespace Journal_WPF
         {
             mark_canv.Visibility = Visibility.Hidden;
             main_canv.Visibility = Visibility.Visible;
+            searh.Clear();
+            mark_select.Text = null;
+            mark_n.Clear();
+            date_picker.Text = null;
+            mark_d.Text = null;
+            mark_student.Text = null;
         }
         private void person_Focus(Canvas main_canv, Canvas person_canv)
         {
@@ -90,6 +96,9 @@ namespace Journal_WPF
         {
             person_canv.Visibility = Visibility.Hidden;
             main_canv.Visibility = Visibility.Visible;
+            surname_t.Clear();
+            name_t.Clear();
+            patronymic_t.Clear();
         }
         private void back_l(object sender, RoutedEventArgs e)
         {
@@ -97,8 +106,6 @@ namespace Journal_WPF
             {
                 mark_Focus(main_canv, mark_canv);
                 Title = "Добавить оценку";
-                //string trysi = Convert.ToString(login.Content);
-                //Mark_VTableAdapter.FillBy(Journal.Mark_V, trysi);
 
             }
             if (((Button)sender).Content.Equals("Назад"))
@@ -203,6 +210,11 @@ namespace Journal_WPF
         private void DatePicker_CalendarClosed(object sender, RoutedEventArgs e)
         {
             mark_date.Text = Convert.ToString(date_picker.Text);
+        }
+
+        private void search_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Mark_VTableAdapter.FillBy(Journal.Mark_V, searh.Text);
         }
     }
 }
