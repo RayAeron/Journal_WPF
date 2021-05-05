@@ -8,6 +8,10 @@
         {
         }
 
+        partial class Mark_VDataTable
+        {
+        }
+
         partial class mark_joinDataTable
         {
         }

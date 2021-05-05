@@ -1785,6 +1785,8 @@ namespace Journal_WPF {
             
             private global::System.Data.DataColumn columnНазвание_дисциплины;
             
+            private global::System.Data.DataColumn columnНазвание_группы;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Mark_VDataTable() {
@@ -1876,6 +1878,14 @@ namespace Journal_WPF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Название_группыColumn {
+                get {
+                    return this.columnНазвание_группы;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1911,7 +1921,7 @@ namespace Journal_WPF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Mark_VRow AddMark_VRow(string Оценка, string Дата_оценки, string Фамилия, string Имя, string Отчество, string Почта, string Название_дисциплины) {
+            public Mark_VRow AddMark_VRow(string Оценка, string Дата_оценки, string Фамилия, string Имя, string Отчество, string Почта, string Название_дисциплины, string Название_группы) {
                 Mark_VRow rowMark_VRow = ((Mark_VRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Оценка,
@@ -1920,7 +1930,8 @@ namespace Journal_WPF {
                         Имя,
                         Отчество,
                         Почта,
-                        Название_дисциплины};
+                        Название_дисциплины,
+                        Название_группы};
                 rowMark_VRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMark_VRow);
                 return rowMark_VRow;
@@ -1950,6 +1961,7 @@ namespace Journal_WPF {
                 this.columnОтчество = base.Columns["Отчество"];
                 this.columnПочта = base.Columns["Почта"];
                 this.columnНазвание_дисциплины = base.Columns["Название дисциплины"];
+                this.columnНазвание_группы = base.Columns["Название группы"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1969,6 +1981,8 @@ namespace Journal_WPF {
                 base.Columns.Add(this.columnПочта);
                 this.columnНазвание_дисциплины = new global::System.Data.DataColumn("Название дисциплины", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНазвание_дисциплины);
+                this.columnНазвание_группы = new global::System.Data.DataColumn("Название группы", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНазвание_группы);
                 this.columnОценка.AllowDBNull = false;
                 this.columnОценка.Caption = "Mark";
                 this.columnОценка.MaxLength = 5;
@@ -1989,6 +2003,8 @@ namespace Journal_WPF {
                 this.columnНазвание_дисциплины.AllowDBNull = false;
                 this.columnНазвание_дисциплины.Caption = "Name_discipline";
                 this.columnНазвание_дисциплины.MaxLength = 100;
+                this.columnНазвание_группы.Caption = "Name_group";
+                this.columnНазвание_группы.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2716,6 +2732,22 @@ namespace Journal_WPF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Название_группы {
+                get {
+                    try {
+                        return ((string)(this[this.tableMark_V.Название_группыColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Название группы\' в таблице \'Mark_V\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMark_V.Название_группыColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsОтчествоNull() {
                 return this.IsNull(this.tableMark_V.ОтчествоColumn);
             }
@@ -2724,6 +2756,18 @@ namespace Journal_WPF {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetОтчествоNull() {
                 this[this.tableMark_V.ОтчествоColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsНазвание_группыNull() {
+                return this.IsNull(this.tableMark_V.Название_группыColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetНазвание_группыNull() {
+                this[this.tableMark_V.Название_группыColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3074,7 +3118,7 @@ SELECT id_discipline, Name_discipline, id_group, id_teacher FROM discipline WHER
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id_discipline, Name_discipline, id_group, id_teacher FROM dbo.discipline";
@@ -3085,6 +3129,12 @@ SELECT id_discipline, Name_discipline, id_group, id_teacher FROM discipline WHER
                 "HERE Name_discipline =@Name_discipline";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name_discipline", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Name_discipline", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT id_discipline, Name_discipline, id_group, id_teacher FROM dbo.discipline W" +
+                "HERE id_group=@id_group";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_group", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_group", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3141,6 +3191,42 @@ SELECT id_discipline, Name_discipline, id_group, id_teacher FROM discipline WHER
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Name_discipline));
+            }
+            Journal.disciplineDataTable dataTable = new Journal.disciplineDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(Journal.disciplineDataTable dataTable, global::System.Nullable<int> id_group) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((id_group.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_group.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Journal.disciplineDataTable GetDataBy1(global::System.Nullable<int> id_group) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((id_group.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_group.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             Journal.disciplineDataTable dataTable = new Journal.disciplineDataTable();
             this.Adapter.Fill(dataTable);
@@ -5361,6 +5447,7 @@ SELECT id_user, Surname, Name, Patronymic, Email, Pass, is_staff, id_group FROM 
             tableMapping.ColumnMappings.Add("Patronymic", "Отчество");
             tableMapping.ColumnMappings.Add("Email", "Почта");
             tableMapping.ColumnMappings.Add("Name_discipline", "Название дисциплины");
+            tableMapping.ColumnMappings.Add("Name_group", "Название группы");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5374,25 +5461,31 @@ SELECT id_user, Surname, Name, Patronymic, Email, Pass, is_staff, id_group FROM 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM db" +
-                "o.Mark_V";
+            this._commandCollection[0].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline, Name_g" +
+                "roup FROM dbo.Mark_V";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM db" +
-                "o.Mark_V WHERE Email = @Email";
+            this._commandCollection[1].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline, Name_g" +
+                "roup FROM dbo.Mark_V WHERE Email = @Email";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline FROM db" +
-                "o.Mark_V WHERE Name_discipline =@Name_discipline AND Email = @Email";
+            this._commandCollection[2].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline, Name_g" +
+                "roup FROM dbo.Mark_V WHERE Name_discipline =@Name_discipline AND Email = @Email";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name_discipline", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Name_discipline", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT Mark, Date_mark, Surname, Name, Patronymic, Email, Name_discipline, Name_g" +
+                "roup FROM dbo.Mark_V WHERE Name_group=@Name_group";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name_group", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Name_group", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5497,6 +5590,42 @@ SELECT id_user, Surname, Name, Patronymic, Email, Pass, is_staff, id_group FROM 
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Email));
+            }
+            Journal.Mark_VDataTable dataTable = new Journal.Mark_VDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy2(Journal.Mark_VDataTable dataTable, string Name_group) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Name_group == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Name_group));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Journal.Mark_VDataTable GetDataBy2(string Name_group) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Name_group == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Name_group));
             }
             Journal.Mark_VDataTable dataTable = new Journal.Mark_VDataTable();
             this.Adapter.Fill(dataTable);

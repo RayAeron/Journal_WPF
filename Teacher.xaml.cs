@@ -26,6 +26,7 @@ namespace Journal_WPF
         markTableAdapter markTableAdapter;
         Mark_VTableAdapter Mark_VTableAdapter;
         disciplineTableAdapter disciplineTableAdapter;
+        groupTableAdapter groupTableAdapter;
         string trysi;
         public Teacher()
         {
@@ -34,6 +35,9 @@ namespace Journal_WPF
             Journal = new Journal();
             usersTableAdapter = new usersTableAdapter();
             usersTableAdapter.Fill(Journal.users);
+
+            groupTableAdapter = new groupTableAdapter();
+            groupTableAdapter.Fill(Journal.group);
 
             Mark_VTableAdapter = new Mark_VTableAdapter();
             Mark_VTableAdapter.Fill(Journal.Mark_V);
@@ -50,13 +54,18 @@ namespace Journal_WPF
             for (int i = 0; i < Journal.users.Rows.Count; i++)
             {
                 string student_tyty = Journal.users.Rows[i].ItemArray[4].ToString();
-                if(Journal.users.Rows[i].ItemArray[6].ToString() == "no")
+                if (Journal.users.Rows[i].ItemArray[6].ToString() == "no")
                 {
                     mark_student.Items.Add(student_tyty);
                 }
-                
+
             }
-           
+
+            for (int i = 0; i < Journal.group.Rows.Count; i++)
+            {
+                string bd_group = Journal.group.Rows[i].ItemArray[1].ToString();
+                group_search.Items.Add(bd_group);
+            }
 
             for (int i = 0; i < Journal.discipline.Rows.Count; i++)
             {
@@ -215,6 +224,51 @@ namespace Journal_WPF
         private void search_btn_Click(object sender, RoutedEventArgs e)
         {
             Mark_VTableAdapter.FillBy(Journal.Mark_V, searh.Text);
+        }
+
+        private void group_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string group_iner = "";
+            groupTableAdapter.FillBy(Journal.group, group_search.Text);
+            if (!Journal.group.Rows.Count.Equals(0))
+            {
+                for (int i = 0; i < Journal.group.Rows.Count; i++)
+                {
+                    string grop_id = Convert.ToString(Journal.group.Rows[i]["id_group"]);
+                    group_iner = grop_id;
+                }
+            }
+            num.Content = group_iner;
+            Mark_VTableAdapter.FillBy2(Journal.Mark_V, group_search.Text);
+
+            mark_student.Items.Clear();
+            mark_d.Items.Clear();
+            try
+            {
+                for (int i = 0; i < Journal.Mark_V.Rows.Count; i++)
+                {
+                    if (!(mark_student.Items.Contains(Journal.Mark_V.Rows[i]["Почта"])))
+                    {
+                        mark_student.Items.Add(Journal.Mark_V.Rows[i]["Почта"]);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Выберите студента");
+            }
+            try
+            {
+                disciplineTableAdapter.FillBy1(Journal.discipline, int.Parse(group_iner));
+                for (int i = 0; i < Journal.discipline.Rows.Count; i++)
+                {
+                    mark_d.Items.Add(Journal.discipline.Rows[i]["Name_discipline"]);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Выберите группу");
+            }
         }
     }
 }
