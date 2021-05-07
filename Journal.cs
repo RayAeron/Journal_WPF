@@ -18,9 +18,12 @@
     }
 }
 
-namespace Journal_WPF.JournalTableAdapters {
-    
-    
+namespace Journal_WPF.JournalTableAdapters
+{
+    partial class groupTableAdapter
+    {
+    }
+
     public partial class usersTableAdapter {
     }
 }

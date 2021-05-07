@@ -160,9 +160,14 @@ namespace Journal_WPF
                                 Student.Show();
                                 this.Close();
                                 break;
+
+                            case "adm":
+                                Admin Admin = new Admin();
+                                Admin.Show();
+                                this.Close();
+                                break;
                         }
                     }
-
                 }
                 else error.Content = "Логин или пароль не совпадают";
             }

@@ -202,13 +202,17 @@ namespace Journal_WPF
                         discipline_iner = discipline_id;
                     }
                 }
-
-                if (mark_d.Text != "" && mark_student.Text != "" && mark_date.Text != "" && mark_n.Text != "")
+                markTableAdapter.FillBy1(Journal.mark, mark_date.Text, Convert.ToInt32(discipline_iner), Convert.ToInt32(users_iner));
+                if (Journal.mark.Rows.Count.Equals(0))
                 {
-                    markTableAdapter.InsertQuery(mark_n.Text, mark_date.Text, Convert.ToInt32(discipline_iner), Convert.ToInt32(users_iner));
+                    if (mark_d.Text != "" && mark_student.Text != "" && mark_date.Text != "" && mark_n.Text != "")
+                    {
+                        markTableAdapter.InsertQuery(mark_n.Text, mark_date.Text, Convert.ToInt32(discipline_iner), Convert.ToInt32(users_iner));
+                    }
+                    else MessageBox.Show("Введите данные");
+                    Mark_VTableAdapter.Fill(Journal.Mark_V);
                 }
-                else MessageBox.Show("Введите данные");
-                Mark_VTableAdapter.Fill(Journal.Mark_V);
+                else MessageBox.Show("Нельзя добавить больше одной оценки в день по одной дисциплине!!!");
             }
             catch
             {
@@ -238,19 +242,23 @@ namespace Journal_WPF
                     group_iner = grop_id;
                 }
             }
-            num.Content = group_iner;
             Mark_VTableAdapter.FillBy2(Journal.Mark_V, group_search.Text);
 
             mark_student.Items.Clear();
             mark_d.Items.Clear();
             try
             {
-                for (int i = 0; i < Journal.Mark_V.Rows.Count; i++)
+                //for (int i = 0; i < Journal.Mark_V.Rows.Count; i++)
+                //{
+                //    if (!(mark_student.Items.Contains(Journal.Mark_V.Rows[i]["Почта"])))
+                //    {
+                //        mark_student.Items.Add(Journal.Mark_V.Rows[i]["Почта"]);
+                //    }
+                //}
+                usersTableAdapter.FillBy3(Journal.users, int.Parse(group_iner));
+                for (int i = 0; i < Journal.users.Rows.Count; i++)
                 {
-                    if (!(mark_student.Items.Contains(Journal.Mark_V.Rows[i]["Почта"])))
-                    {
-                        mark_student.Items.Add(Journal.Mark_V.Rows[i]["Почта"]);
-                    }
+                    mark_student.Items.Add(Journal.users.Rows[i]["Email"]);
                 }
             }
             catch

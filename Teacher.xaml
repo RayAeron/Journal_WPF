@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Панель преподавателя" Height="475.05" Width="905.567" ResizeMode="CanMinimize" Background="#FF252525" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Canvas x:Name="main_canv" Visibility="Visible">
+        <Canvas x:Name="main_canv" Visibility="Hidden">
             <Label x:Name="login" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FF0767B3" FontWeight="Bold" FontSize="16"/>
             <Button x:Name="mark_add" Content="Добавить оценку" Canvas.Left="10" BorderBrush="#FF0767B3" Background="{x:Null}" Canvas.Top="52" FontSize="16" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Width="425" Foreground="#FF0767B3" Height="384" Click="back_l"/>
             <Button x:Name="personal_cabinet" Content="Личный кабинет" BorderBrush="#FF0767B3" Background="{x:Null}" FontSize="16" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Width="421" Foreground="#FF0767B3" Canvas.Left="469" Canvas.Top="52" Height="384" Click="back_l"/>
@@ -45,7 +45,7 @@
             <ComboBox x:Name="group_search" Canvas.Left="86" Canvas.Top="24" Width="120" Foreground="#FF0767B3" BorderBrush="#FF0767B3" Height="32"/>
             <Button x:Name="group_btn" Content="Поиск по группе" Canvas.Left="224" Canvas.Top="24" Width="140" BorderBrush="#FF0767B3" Foreground="White" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3" FontSize="12" Click="group_btn_Click"/>
         </Canvas>
-        <Canvas x:Name="person_canv" Visibility="Hidden">
+        <Canvas x:Name="person_canv" Visibility="Visible">
             <Button x:Name="back_person" Content="Назад" Canvas.Left="725" BorderBrush="#FF0767B3" Canvas.Top="404" FontSize="14" Width="165" Foreground="White" Height="32" Click="back_l" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3"/>
             <Label Content="Имя:" Canvas.Left="86" Canvas.Top="181" Foreground="#FF0767B3" Width="78" FontSize="14" FontWeight="Bold" Height="31"/>
             <Label Content="Фамилия:" Canvas.Left="86" Canvas.Top="145" Foreground="#FF0767B3" Width="78" FontSize="14" FontWeight="Bold" Height="31"/>
