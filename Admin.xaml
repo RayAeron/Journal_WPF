@@ -16,7 +16,7 @@
                     <ImageBrush ImageSource="log_out_icon_128821.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Canvas x:Name="canv_mark_add_edit" Height="558" Canvas.Left="10" Canvas.Top="10" Width="944" Visibility="Visible">
+            <Canvas x:Name="canv_mark_add_edit" Height="558" Canvas.Left="10" Canvas.Top="10" Width="944" Visibility="Hidden">
                 <TextBox x:Name="searh" Height="32" Canvas.Left="470" Canvas.Top="10" Width="178" BorderBrush="#FF0078D7" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7"/>
                 <Button x:Name="search_btn" Content="Поиск по почте" Canvas.Left="658" Canvas.Top="10" Width="133" BorderBrush="#FF0767B3" Foreground="White" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3" Click="search_btn_Click" FontSize="12"/>
                 <ComboBox x:Name="group_search" Canvas.Left="200" Canvas.Top="10" Width="120" Foreground="#FF0767B3" BorderBrush="#FF0767B3" Height="32"  HorizontalContentAlignment="Center"/>
@@ -59,6 +59,7 @@
             <Button x:Name="mark_canv_1" Content="Оценки" Canvas.Left="974" Canvas.Top="10" Width="167" BorderBrush="#FF0767B3" Foreground="White" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="{x:Null}" FontSize="12" Click="canv_next"/>
             <Button x:Name="group_canv" Content="Группы" Canvas.Left="974" Canvas.Top="47" Width="167" BorderBrush="#FF0767B3" Foreground="White" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="{x:Null}" FontSize="12" Click="canv_next"/>
             <Button x:Name="permiss_canv" Content="Права пользователей" Canvas.Left="974" Canvas.Top="84" Width="167" BorderBrush="#FF0767B3" Foreground="White" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="{x:Null}" FontSize="12" Click="canv_next"/>
+            <Button x:Name="discipline_canv" Content="Дисциплины" Canvas.Left="974" Canvas.Top="121" Width="167" BorderBrush="#FF0767B3" Foreground="White" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="{x:Null}" FontSize="12" Click="canv_next"/>
         </Canvas>
         <Canvas x:Name="permiss_edit" Height="558" Canvas.Left="10" Canvas.Top="10" Width="944" Visibility="Hidden" Margin="10,10,244,10">
             <DataGrid x:Name="permiss_grid" Height="278" Canvas.Left="5" Canvas.Top="71" Width="929" Background="#FF252525" BorderBrush="#FF0767B3" Foreground="#FF0767B3" AutoGenerateColumns = "True" SelectionChanged="permiss_grid_SelectionChanged" AutoGeneratingColumn="permiss_grid_AutoGeneratingColumn" />
@@ -72,6 +73,15 @@
             <Label x:Name="permiss" Content="label" Canvas.Left="10" Canvas.Top="469" Foreground="#FF0767B3" Width="39" HorizontalContentAlignment="Center" Visibility="Hidden"/>
             <TextBox x:Name="searh_student" Height="32" Canvas.Left="318" Canvas.Top="34" Width="178" BorderBrush="#FF0078D7" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7"/>
             <Button x:Name="searh_student_btn" Content="Поиск по почте" Canvas.Left="506" Canvas.Top="34" Width="133" BorderBrush="#FF0767B3" Foreground="White" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3" FontSize="12" Click="searh_student_btn_Click"/>
+        </Canvas>
+        <Canvas x:Name="disciplin_canvas" Height="558" Canvas.Left="10" Canvas.Top="10" Width="944" Visibility="Visible" Margin="10,10,244,10">
+            <DataGrid x:Name="discipline_grid" Height="278" Canvas.Left="5" Canvas.Top="71" Width="929" Background="#FF252525" BorderBrush="#FF0767B3" Foreground="#FF0767B3" AutoGenerateColumns = "True"/>
+            <ComboBox x:Name="discipline_teacher_id" Canvas.Left="404" Canvas.Top="389" Width="120" Foreground="#FF0767B3" BorderBrush="#FF0767B3" Height="32"  HorizontalContentAlignment="Center"/>
+            <ComboBox x:Name="discipline_group_id" Canvas.Left="279" Canvas.Top="389" Width="120" Foreground="#FF0767B3" BorderBrush="#FF0767B3" Height="32"  HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="name_disc" Height="32" Canvas.Left="96" Canvas.Top="389" Width="178" BorderBrush="#FF0078D7" HorizontalContentAlignment="Center" Foreground="#FFE6EAFE" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" CaretBrush="#FF0078D7"/>
+            <RadioButton x:Name="add_disciplines" Content="Добавить дисциплину" Canvas.Left="522" Canvas.Top="460" Background="#FF0078D7" BorderBrush="{x:Null}" Foreground="#FF0767B3" GroupName ="edit_add_disciplines" Checked="check_disciplines" mah:ControlsHelper.RecognizesAccessKey="False" IsChecked="True" FontSize="16" Height="32"/>
+            <RadioButton x:Name="edit_disciplines" Content="Изменить дисциплину" Canvas.Left="712" Canvas.Top="460" Background="#FF0078D7" BorderBrush="{x:Null}" Foreground="#FF0767B3" GroupName ="edit_add_disciplines" Checked="check_disciplines" FontSize="16" Height="32"/>
+            <Button x:Name="add_discipline" Content="Добавить дисциплину" Canvas.Left="599" Canvas.Top="497" Width="200" BorderBrush="#FF0767B3" Foreground="White" mah:ControlsHelper.FocusBorderBrush="#FF0767B3" Background="#FF0767B3" FontSize="12" Click="add_discipline_Click"/>
         </Canvas>
     </Grid>
 

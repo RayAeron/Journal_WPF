@@ -29,6 +29,7 @@ namespace Journal_WPF
         Mark_VTableAdapter Mark_VTableAdapter;
         disciplineTableAdapter disciplineTableAdapter;
         groupTableAdapter groupTableAdapter;
+        Discipline_VTableAdapter Discipline_VTableAdapter;
         string check = "add";
         public Admin()
         {
@@ -49,6 +50,13 @@ namespace Journal_WPF
             group_grid.CanUserAddRows = false;
             group_grid.IsReadOnly = true;
 
+            Discipline_VTableAdapter = new Discipline_VTableAdapter();
+            Discipline_VTableAdapter.Fill(Journal.Discipline_V);
+            discipline_grid.ItemsSource = Journal.Discipline_V.DefaultView;
+            discipline_grid.CanUserDeleteRows = false;
+            discipline_grid.CanUserAddRows = false;
+            discipline_grid.IsReadOnly = true;
+
             Mark_VTableAdapter = new Mark_VTableAdapter();
             Mark_VTableAdapter.Fill(Journal.Mark_V);
             mark.ItemsSource = Journal.Mark_V.DefaultView;
@@ -68,13 +76,23 @@ namespace Journal_WPF
                 {
                     mark_student.Items.Add(student_tyty);
                 }
+            }
 
+            for (int i = 0; i < Journal.users.Rows.Count; i++)
+            {
+                string student_kyky = Journal.users.Rows[i].ItemArray[4].ToString();
+                if (Journal.users.Rows[i].ItemArray[6].ToString() == "yes")
+                {
+                    discipline_teacher_id.Items.Add(student_kyky);
+                }
             }
 
             for (int i = 0; i < Journal.group.Rows.Count; i++)
             {
                 string bd_group = Journal.group.Rows[i].ItemArray[1].ToString();
                 group_search.Items.Add(bd_group);
+                discipline_group_id.Items.Add(bd_group);
+
             }
             for (int i = 0; i < Journal.group.Rows.Count; i++)
             {
@@ -86,6 +104,7 @@ namespace Journal_WPF
             {
                 string bd_discipline = Journal.discipline.Rows[i].ItemArray[1].ToString();
                 mark_d.Items.Add(bd_discipline);
+
             }
         }
 
@@ -300,16 +319,26 @@ namespace Journal_WPF
                 canv_mark_add_edit.Visibility = Visibility.Visible;
                 canv_group_add_edit.Visibility = Visibility.Hidden;
                 permiss_edit.Visibility = Visibility.Hidden;
+                disciplin_canvas.Visibility = Visibility.Hidden;
             }
             if (((Button)sender).Content.Equals("Группы"))
             {
                 canv_group_add_edit.Visibility = Visibility.Visible;
                 canv_mark_add_edit.Visibility = Visibility.Hidden;
                 permiss_edit.Visibility = Visibility.Hidden;
+                disciplin_canvas.Visibility = Visibility.Hidden;
             }
             if (((Button)sender).Content.Equals("Права пользователей"))
             {
                 permiss_edit.Visibility = Visibility.Visible;
+                canv_mark_add_edit.Visibility = Visibility.Hidden;
+                canv_group_add_edit.Visibility = Visibility.Hidden;
+                disciplin_canvas.Visibility = Visibility.Hidden;
+            }
+            if (((Button)sender).Content.Equals("Дисциплины"))
+            {
+                disciplin_canvas.Visibility = Visibility.Visible;
+                permiss_edit.Visibility = Visibility.Hidden;
                 canv_mark_add_edit.Visibility = Visibility.Hidden;
                 canv_group_add_edit.Visibility = Visibility.Hidden;
             }
@@ -404,6 +433,25 @@ namespace Journal_WPF
         private void searh_student_btn_Click(object sender, RoutedEventArgs e)
         {
             usersTableAdapter.FillBy(Journal.users, searh_student.Text);
+        }
+
+        private void add_discipline_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void check_disciplines(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            check = radioButton.Name;
+            if (check == "edit_disciplines")
+            {
+                add_discipline.Content = "Изменить дисциплину";
+            }
+            else
+            {
+                add_discipline.Content = "Добавить дисциплину";
+            }
         }
     }
 }

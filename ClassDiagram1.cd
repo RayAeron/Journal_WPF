@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Journal_WPF.Admin" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAQAAJAKCAAAIAJAQAAEAAQgQAAAAkAwQIAEAAA=</HashCode>
+      <FileName>Admin.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Journal_WPF.Journal">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="Journal_WPF.Journal.groupRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Journal_WPF.Journal.markRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.Mark_VDataTable" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Journal.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Journal_WPF.Journal.groupRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.Mark_VRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.usersDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.markDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.disciplineRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Journal_WPF.Journal.markRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Journal_WPF.Journal.groupDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.markRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.usersRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Journal_WPF.Journal.disciplineRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Journal_WPF.Journal.groupRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.disciplineRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.usersRowChangeEvent" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.Mark_VRow" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Class Name="Journal_WPF.Journal.mark_joinDataTable" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Journal.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Delegate Name="Journal_WPF.Journal.Mark_VRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+      <Class Name="Journal_WPF.Journal.disciplineDataTable" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+      <Delegate Name="Journal_WPF.Journal.usersRowChangeEventHandler" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>YCAAAgAEAxAAkAJAJAAFQCAAEAgCQBgAEAAAACEAlBQ=</HashCode>
+      <FileName>Journal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Journal_WPF.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAADAICQAAAAAIAAAGAAEgAAAAABABAAAAEIA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Journal_WPF.reck_pass" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACEAAAAAAAgAQIAIAAIAAAEAAAgAAAAAQQAAAAAAAA=</HashCode>
+      <FileName>reck_pass.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Journal_WPF.Student" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AACACQAAAAQIAAAAAABIAAAEAAQgQAAAAAAAAACBAIA=</HashCode>
+      <FileName>Student.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Journal_WPF.Teacher" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACACQAAAAQICAAAAABIQAAEAAQgQAAAAgAAQACBAIA=</HashCode>
+      <FileName>Teacher.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Journal_WPF.JournalTableAdapters.groupTableAdapter">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEMgACAcAIgAAAAAAACEICAgAHAAIAAAABRA=</HashCode>
+      <FileName>Journal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Journal_WPF.JournalTableAdapters.usersTableAdapter">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAGDAACAcAIAAAAAAAACEICAgAHgAIAAAARRA=</HashCode>
+      <FileName>Journal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Journal_WPF.JournalTableAdapters.disciplineTableAdapter">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAgACAcAIAAAAAAAACEICAAAEAAAAAAARBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Journal_WPF.JournalTableAdapters.markTableAdapter">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEDAACAcAIAAAAAAAACEICAgAEAAIAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Journal_WPF.JournalTableAdapters.Mark_VTableAdapter">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAGAAEBgACAcAIAAAAAAAACAICAAAGAAAAAAARBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Journal_WPF.JournalTableAdapters.TableAdapterManager">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Journal_WPF.JournalTableAdapters.TableAdapterManager.UpdateOrderOption" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+      <Class Name="Journal_WPF.JournalTableAdapters.TableAdapterManager.SelfReferenceComparer" Collapsed="true">
+        <TypeIdentifier />
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAAACAAAABADAEBAAAAcAAkhQACgAAAAAQAQAIABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Journal_WPF.Properties.Resources">
+    <Position X="11" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Journal_WPF.Properties.Settings">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
